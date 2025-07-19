@@ -1,0 +1,29 @@
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+
+X_text, y = zip(*training_data)
+
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(X_text)
+
+
+model = MultinomialNB()
+model.fit(X, y)
+
+
+def chatbot_reply(user_input):
+    user_input = user_input.lower()
+    input_vec = vectorizer.transform([user_input])
+    prediction = model.predict(input_vec)
+    return prediction[0]
+
+
+print("ChatBot is ready! Type 'exit' to quit.")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ["exit", "quit"]:
+        print("ChatBot: Goodbye!")
+        break
+    response = chatbot_reply(user_input)
+    print("ChatBot:", response)

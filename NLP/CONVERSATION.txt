@@ -1,0 +1,7 @@
+"hi", "Hello! How can I help you today?",
+"hello", "Hi there!",
+"how are you", "I'm doing great, thank you!",
+"what is your name", "I'm ChatBot, your assistant.",
+"bye", "Goodbye! Have a nice day.",
+"thanks", "You're welcome!",
+"help", "Sure, I'm here to help you."
